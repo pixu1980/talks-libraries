@@ -1,0 +1,31 @@
+@layer typography {
+  html {
+    font-size: 10px;
+  }
+
+  body {
+    font-size: 1.6rem;
+  }
+
+  mark,
+  .highlight-color {
+    color: var(--r-highlight-color);
+    background: none;
+  }
+
+  mark {
+    display: inline;
+    vertical-align: baseline;
+  }
+
+  .present {
+    [balance] {
+      text-wrap: balance;
+    }
+  }
+
+  [note] {
+    color: var(--color--gray-400);
+    font-size: 0.75em;
+  }
+}

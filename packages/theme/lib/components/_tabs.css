@@ -1,0 +1,42 @@
+@layer tabs {
+  tabs {
+    display: block;
+    margin-top: 1rem;
+
+    tabs-list {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-end;
+      justify-content: center;
+
+      > a {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+
+        &[aria-selected='true'] {
+          font-weight: 700;
+        }
+
+        &[aria-selected='false'] {
+        }
+      }
+    }
+
+    tabs-panels {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+
+      > tab-panel {
+        display: block;
+
+        &[aria-hidden='true'] {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'anicons';
+  src: url('fonts/anicons.woff2') format('woff2 supports variations'), url('fonts/anicons.woff2') format('woff2-variations');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'anicons-color';
+  src: url('fonts/anicons-color.woff2') format('woff2 supports variations'), url('fonts/anicons-color.woff2') format('woff2-variations');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class*='anicons-'] {
+  font-family: 'anicons';
+  color: inherit;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-variation-settings: 'TIME' var(--anicons--time, 1);
+  transition: font-variation-settings 0.4s ease;
+
+  &:hover {
+    font-variation-settings: 'TIME' 100;
+  }
+}
+
+[class*='anicons-color-'] {
+  font-family: 'anicons-color';
+}
+
+.anicons-hamburger-close,
+.anicons-color-hamburger-close {
+  &:before {
+    content: 'A';
+  }
+}
+
+.anicons-hamburger-back,
+.anicons-color-hamburger-back {
+  &:before {
+    content: 'B';
+  }
+}
+
+.anicons-hamburger-back-alt,
+.anicons-color-hamburger-back-alt {
+  &:before {
+    content: 'D';
+  }
+}
+
+.anicons-play-pause,
+.anicons-color-play-pause {
+  &:before {
+    content: 'H';
+  }
+}
+
+.anicons-play-pulse,
+.anicons-color-play-pulse {
+  &:before {
+    content: 'I';
+  }
+}
+
+.anicons-like {
+  &:before {
+    content: 'N';
+  }
+}
+
+.anicons-color-like {
+  &:before {
+    content: 'M';
+  }
+}
+
+.anicons-like-alt {
+  &:before {
+    content: 'O';
+  }
+}
+
+.anicons-color-like-alt {
+  &:before {
+    content: 'N';
+  }
+}
+
+.anicons-dislike,
+.anicons-color-dislike {
+  &:before {
+    content: 'Q';
+  }
+}
+
+.anicons-thumb {
+  &:before {
+    content: 'T';
+  }
+}
+
+.anicons-color-thumb {
+  &:before {
+    content: 'S';
+  }
+}
+
+.anicons-thumb-alt {
+  &:before {
+    content: 'V';
+  }
+}
+
+.anicons-color-thumb-alt {
+  &:before {
+    content: 'T';
+  }
+}
+
+.anicons-bell,
+.anicons-color-bell {
+  &:before {
+    content: 'h';
+  }
+}
+
+.anicons-bell-alt,
+.anicons-color-bell-alt {
+  &:before {
+    content: 'i';
+  }
+}
+
+.anicons-lock-error,
+.anicons-color-lock-error {
+  &:before {
+    content: 's';
+  }
+}
+
+.anicons-unlock,
+.anicons-color-unlock {
+  &:before {
+    content: 't';
+  }
+}

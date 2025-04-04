@@ -1,0 +1,96 @@
+@layer inputs {
+  :root {
+    --input-range--track--height: 0.3rem;
+    --input-range--track--background-color: var(--color-gray-300);
+    --input-range--thumb--width: 1.2rem;
+    --input-range--thumb--height: 2rem;
+    --input-range--thumb--background-color: var(--color-yellow-400);
+    --input-range--thumb--border: 0.1rem solid var(--color-black-300);
+    --input-range--thumb--border-radius: 0.2rem;
+    --input-range--thumb--margin-top: calc(var(--input-range--thumb--height) - var(--input-range--track--height) / -2);
+    --input-range--thumb--focus--box-shadow: 0 0 0.7rem 0.3rem #0065c4;
+  }
+
+  input[type='range'] {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 2rem;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: var(--input-range--track--height);
+      color: transparent;
+      background: var(--input-range--track--background-color);
+      border: 0;
+      border-radius: calc(var(--input-range--track--height) / 2);
+      margin: 0;
+      cursor: pointer;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: var(--input-range--track--height);
+      color: transparent;
+      background: var(--input-range--track--background-color);
+      border: 0;
+      border-radius: calc(var(--input-range--track--height) / 2);
+      margin: 0;
+      cursor: pointer;
+    }
+
+    &::-ms-track {
+      width: 100%;
+      height: var(--input-range--track--height);
+      color: transparent;
+      background: var(--input-range--track--background-color);
+      border: 0;
+      border-radius: calc(var(--input-range--track--height) / 2);
+      margin: 0;
+      cursor: pointer;
+    }
+
+    &::-ms-fill-lower {
+      background: transparent;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: var(--input-range--thumb--width);
+      height: var(--input-range--thumb--height);
+      background: var(--input-range--thumb--background-color);
+      border: var(--input-range--thumb--border);
+      border-radius: var(--input-range--thumb--border-radius);
+      margin-top: var(--input-range--thumb--margin-top);
+      cursor: pointer;
+    }
+
+    &:focus::-webkit-slider-thumb {
+      box-shadow: var(--input-range--thumb--focus--box-shadow);
+    }
+
+    &::-moz-range-thumb {
+      -webkit-appearance: none;
+      width: var(--input-range--thumb--width);
+      height: var(--input-range--thumb--height);
+      background: var(--input-range--thumb--background-color);
+      border: var(--input-range--thumb--border);
+      border-radius: var(--input-range--thumb--border-radius);
+      margin-top: var(--input-range--thumb--margin-top);
+      cursor: pointer;
+    }
+
+    &:focus::-moz-range-thumb {
+      box-shadow: var(--input-range--thumb--focus--box-shadow);
+    }
+  }
+
+  fieldset {
+    border: 0;
+  }
+}

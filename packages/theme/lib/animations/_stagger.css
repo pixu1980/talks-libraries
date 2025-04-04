@@ -1,0 +1,24 @@
+@layer stagger {
+  stagger {
+    --stagger--delay: 400ms;
+
+    display: block;
+
+    > * {
+      --stagger--index: 0;
+      --ani--delay: calc(var(--stagger--delay) * var(--stagger--index));
+    }
+
+    &.fragment:not(.visible) {
+      --ani--name: none;
+    }
+  }
+
+  .stack.present {
+    > :not(.present) {
+      stagger:not(.fragment) {
+        --ani--name: none;
+      }
+    }
+  }
+}

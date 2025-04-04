@@ -1,0 +1,23 @@
+@layer variables { 
+:root {
+  --font-family--fallback: BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue';
+  --font-family--base: 'Museo Sans', sans-serif;
+  --font-family--heading: 'Museo Slab', serif;
+  --font-family--code: 'Fira Code Retina', 'Museo Sans', sans-serif;
+  --font-family--code--monospace: 'Fira Code Monospace', 'Museo Sans', sans-serif;
+  --font-family--code--monospace-full: 'Fira Code Monospace Full', 'Museo Sans', sans-serif;
+  --font-family--variable--rec-vf: 'RecVF', sans-serif;
+
+  --font-ratio: 1.067; /* minor second 15:16 */
+  --font-root: 10px;
+  --font-base: 1.6rem;
+
+  --gutter-base: 1.5rem;
+
+  --r-main-font-size: 4.5rem;
+  --r-heading-color: #f0f0f0;
+  --r-heading-text-transform: none;
+  --r-link-color: #ad85d6;
+  --r-highlight-color: #ad85d6;
+}
+}

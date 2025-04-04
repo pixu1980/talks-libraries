@@ -1,0 +1,80 @@
+@layer examples {
+  :root {
+    --gutter-base: 1.5rem;
+  }
+
+  example {
+    /* width: 100%; */
+
+    &[code] {
+      code {
+        max-height: 40rem;
+      }
+
+      h6 {
+        text-align: left;
+
+        + pre {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+
+  example-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    example {
+      &:not(:is([code], [form])) {
+        border: 0.2rem dashed var(--color-white-200);
+        padding: calc(var(--gutter-base) / 2);
+
+        text-align: center;
+        justify-content: center;
+        color: var(--color-gray-400);
+
+        p {
+          font-size: 2rem;
+          font-weight: 300;
+          line-height: 1;
+
+          transition: all 0.2s linear;
+        }
+      }
+
+      + example[code] {
+        margin-top: calc(var(--gutter-base) * 2);
+        padding: 0;
+      }
+
+      &[form] {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.3rem;
+        font-weight: 300;
+        cursor: pointer;
+
+        > * {
+          display: block;
+
+          + * {
+            margin-top: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  :not(comparison) {
+    example-wrapper {
+      max-width: 75%;
+      margin: 0 auto;
+    }
+  }
+}

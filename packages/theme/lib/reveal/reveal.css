@@ -1,0 +1,64 @@
+@import 'npm:reveal.js/dist/reset.css' layer(reveal);
+@import 'npm:reveal.js/dist/reveal.css' layer(reveal);
+@import 'npm:reveal.js/dist/theme/black.css' layer(reveal);
+@import 'npm:reveal.js/plugin/highlight/monokai.css' layer(reveal);
+
+@import './_media.css' layer(reveal);
+@import './_lists.css' layer(reveal);
+@import './_print.css' layer(reveal);
+
+@layer reveal {
+  .reveal {
+    :is(h1, h2, h3, h4, h5, h6, p, blockquote, small, ul, ol, comparison, pre, example) {
+      margin-block: 0;
+
+      + :is(h1, h2, h3, h4, h5, h6, p, blockquote, small, ul, ol, comparison, pre, example) {
+        margin-block-start: 1.5rem;
+      }
+    }
+
+    img {
+      margin: 0;
+    }
+
+    section > :is(p, blockquote, small) {
+      max-inline-size: 50ch;
+      margin-inline: auto;
+    }
+
+    blockquote {
+      padding: 1.5rem;
+      margin-inline: auto;
+
+      font-size: 1.25em;
+      text-align: left;
+
+      &::before {
+        content: '“';
+      }
+
+      &::after {
+        content: '”';
+      }
+    }
+
+    li + li {
+      margin-block-start: 2rem;
+    }
+
+    small {
+      font-size: 0.7em;
+    }
+
+    pre {
+      max-width: 65%;
+      margin: 0 auto;
+
+      code {
+        max-height: 40rem;
+        font-size: 0.8em;
+        line-height: 1.3;
+      }
+    }
+  }
+}

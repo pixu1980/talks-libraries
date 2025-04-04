@@ -1,0 +1,30 @@
+@layer print {
+  /*********************************************
+   * PRINT BACKGROUND
+   *********************************************/
+  @media print {
+    .backgrounds {
+      background-color: #2b292a;
+    }
+  }
+
+  html.print-pdf {
+    .reveal {
+      pre {
+        box-shadow: none !important;
+      }
+
+      code.hljs tr {
+        opacity: 1 !important;
+      }
+
+      .slide-background.no-print {
+        display: none !important;
+      }
+
+      .slides section.no-print {
+        display: none !important;
+      }
+    }
+  }
+}

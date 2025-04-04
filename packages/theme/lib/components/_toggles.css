@@ -1,0 +1,196 @@
+@layer toggles {
+  /* Toggle */
+  /* https://adrianroselli.com/2019/08/under-engineered-toggles-too.html */
+
+  toggles {
+    margin: 0;
+    padding: 1;
+    color: var(--color-white-300);
+    background-color: var(--color-black-400);
+    border-color: var(--color-gray-800);
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+
+    & [aria-pressed] {
+      display: block;
+      box-sizing: border-box;
+      border: none;
+      color: inherit;
+      background: none;
+      font-family: inherit;
+      text-align: left;
+      padding: 0.4rem 0 0.4rem 4rem;
+      position: relative;
+
+      &:where(:focus, :hover) {
+        color: var(--color-yellow-400);
+        outline: none;
+
+        &::before {
+          box-shadow: 0 0 0.5rem var(--color-black-300);
+        }
+      }
+
+      &:where(::before, ::after) {
+        content: '';
+        position: absolute;
+        height: 1.5rem;
+        transition: all 0.25s ease;
+      }
+
+      &::before {
+        left: 0;
+        top: 0.2rem;
+        width: 3rem;
+        border: 0.2rem solid var(--color-gray-500);
+        background: var(--color-gray-500);
+        border-radius: 1.1rem;
+      }
+
+      &::after {
+        left: 0.1rem;
+        top: 0.3rem;
+        background-color: var(--color-black-400);
+        border-radius: 50%;
+        width: 1.5rem;
+        border: 0.15rem solid var(--color-gray-600);
+      }
+
+      &[aria-pressed='true'] {
+        &::after {
+          left: 1.6rem;
+          background-color: var(--color-yellow-400);
+          border-color: var(--color-gray-400);
+          color: var(--color-gray-400);
+        }
+
+        &::before {
+          background-color: var(--color-gray-400);
+          border-color: var(--color-gray-400);
+        }
+      }
+
+      &[disabled] {
+        color: var(--color-gray-400);
+
+        &::before {
+          background-color: transparent;
+          border-color: var(--color-gray-700);
+        }
+
+        &::after {
+          border-color: var(--color-gray-700);
+        }
+
+        &:hover {
+          color: var(--color-gray-400);
+
+          &::before {
+            box-shadow: none;
+          }
+
+          &::after {
+            background-image: none;
+          }
+        }
+      }
+    }
+
+    &.flip {
+      & [aria-pressed] {
+        padding-left: 0;
+        padding-right: 4rem;
+
+        &:where(::before, ::after) {
+          left: auto;
+          right: 0;
+        }
+
+        &::after {
+          left: auto;
+          right: 1.6rem;
+        }
+
+        &[aria-pressed='true']::after {
+          right: 0;
+        }
+      }
+    }
+  }
+
+  /* Windows High Contrast Mode Support */
+  @media screen and (-ms-high-contrast: active) {
+    toggles {
+      [aria-pressed] {
+        &:where(:focus, :hover) {
+          &::before {
+            outline: 1px dotted windowText;
+            outline-offset: 0.25rem;
+          }
+        }
+
+        &::after {
+          background-color: windowText;
+        }
+
+        &[disabled] {
+          &::after {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  /* Reduced motion */
+  @media screen and (prefers-reduced-motion: reduce) {
+    toggles [aria-pressed]:where(::before, ::after) {
+      transition: none;
+    }
+  }
+
+  /* RTL */
+  /* https://twitter.com/dror3go/status/1102946375396982784 */
+  [dir='rtl'] toggles {
+    [aria-pressed] {
+      padding-left: 0;
+      padding-right: 4rem;
+
+      &:where(::before, ::after) {
+        left: auto;
+        right: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+
+      &[aria-pressed='true'] {
+        &::after {
+          right: 1.6em;
+        }
+      }
+    }
+
+    &.flip {
+      [aria-pressed] {
+        padding-right: 0;
+        padding-left: 4rem;
+
+        &:where(::before, ::after) {
+          left: 0;
+          right: auto;
+        }
+
+        &::after {
+          right: auto;
+          left: 1.6rem;
+        }
+
+        &[aria-pressed='true']::after {
+          left: 0;
+        }
+      }
+    }
+  }
+}

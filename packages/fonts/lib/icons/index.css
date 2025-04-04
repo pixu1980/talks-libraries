@@ -1,0 +1,9 @@
+@import './draft-ui-icons/draft-ui-icons.css' layer(iconography.draft-ui-icons);
+@import './space-icons/style.css' layer(iconography.space-icons);
+@import './anicons/style.css' layer(iconography.anicons);
+
+@layer iconography {
+  [class*='icon'] {
+    display: inline;
+  }
+}

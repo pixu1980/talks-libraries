@@ -1,0 +1,4 @@
+@import './FiraCode/FiraCode.css' layer(typography.fira-code);
+@import 'MuseoSans/MuseoSans.css' layer(typography.museo-sans);
+@import 'MuseoSlab/MuseoSlab.css' layer(typography.museo-slab);
+@import 'RecVF/RecVF.css' layer(typography.rec-vf);

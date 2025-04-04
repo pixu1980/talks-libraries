@@ -1,0 +1,43 @@
+@layer lists {
+  ol,
+  dl,
+  ul {
+    display: inline-block;
+    text-align: left;
+    margin: 0 0 0 1em;
+    color: var(--color-gray-400);
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ul ul {
+    list-style-type: square;
+  }
+
+  ul ul ul {
+    list-style-type: circle;
+  }
+
+  :is(ul, ol) :is(ul, ol) {
+    display: block;
+    margin-left: 4rem;
+  }
+
+  ul li small {
+    color: var(--color-gray-400);
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 4rem;
+  }
+}

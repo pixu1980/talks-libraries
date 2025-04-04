@@ -1,0 +1,19 @@
+@layer comparison {
+  comparison {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    gap: 0;
+
+    inline-size: 100%;
+    margin-block-start: 2.5rem;
+
+    > * {
+      inline-size: 50%;
+    }
+
+    pre {
+      max-width: 100%;
+    }
+  }
+}
