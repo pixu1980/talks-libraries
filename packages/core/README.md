@@ -1,3 +1,3 @@
-# @ui-ux-engineering/theme
+# @pixu-talks/core
 
-UI/UX Engineering Libraries Core
+Common Pixu talks core js

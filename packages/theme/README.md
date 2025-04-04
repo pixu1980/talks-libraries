@@ -1,3 +1,3 @@
-# @ui-ux-engineering/theme
+# @pixu-talks/theme
 
-UI/UX Engineering Libraries Theme
+Common Pixu talks theme

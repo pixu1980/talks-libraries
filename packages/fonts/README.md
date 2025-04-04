@@ -1,3 +1,3 @@
-# @ui-ux-engineering/fonts
+# @pixu-talks/fonts
 
-UI/UX Engineering Libraries Fonts
+Common Pixu talks fonts
