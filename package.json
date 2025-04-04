@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "rel:push": "git push && git push --tags",
-    "rel:patch": "lerna publish patch && yarn version --patch && yarn rel:push",
-    "rel:minor": "lerna publish minor && yarn version --minor && yarn rel:push",
-    "rel:major": "lerna publish major && yarn version --major && yarn rel:push"
+    "rel:patch": "lerna publish patch && yarn version --patch --no-git-tag-version && yarn rel:push",
+    "rel:minor": "lerna publish minor && yarn version --minor --no-git-tag-version && yarn rel:push",
+    "rel:major": "lerna publish major && yarn version --major --no-git-tag-version && yarn rel:push"
   },
   "dependencies": {},
   "devDependencies": {
