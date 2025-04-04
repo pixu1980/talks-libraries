@@ -1,4 +1,4 @@
-window.uiuxEngineering = {
+window.pixuTalks = {
   /**
    * Pass in an element and its CSS Custom Property that you want the value of.
    * Optionally, you can determine what datatype you get back.
