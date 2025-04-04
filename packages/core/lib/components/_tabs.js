@@ -1,3 +1,4 @@
+// Tabs component
 addEventListener('DOMContentLoaded', () => {
   const tabsComponents = document.querySelectorAll('tabs');
 

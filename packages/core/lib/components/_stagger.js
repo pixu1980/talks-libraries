@@ -1,3 +1,4 @@
+// Stagger animation components
 addEventListener('DOMContentLoaded', () => {
   const staggers = [...document.querySelectorAll('stagger')];
 

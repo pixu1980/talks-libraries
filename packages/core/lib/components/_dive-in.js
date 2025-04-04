@@ -1,3 +1,4 @@
+// DiveIn stacked container component
 addEventListener('DOMContentLoaded', () => {
   const diveIn = document.querySelector('dive-in');
   const stackContainer = diveIn && diveIn.querySelector('stack-container');
