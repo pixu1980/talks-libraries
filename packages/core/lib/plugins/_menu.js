@@ -1,7 +1,8 @@
 /*
  * Reveal.js menu plugin
  * MIT licensed
- * (c) Pixu 2022
+ * 
+ * Copyright (c) 2025 Emiliano "pixu1980" Pisu
  */
 
 const defaults = {

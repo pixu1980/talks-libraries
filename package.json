@@ -6,7 +6,7 @@
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "rel:push": "git add . && git commit --amend --no-edit && git push && git push --tags",
+    "rel:push": "git add . && git commit --amend --no-edit && git push -f && git push --tags",
     "rel:patch": "lerna publish patch && yarn version --patch --no-git-tag-version && yarn rel:push",
     "rel:minor": "lerna publish minor && yarn version --minor --no-git-tag-version && yarn rel:push",
     "rel:major": "lerna publish major && yarn version --major --no-git-tag-version && yarn rel:push"

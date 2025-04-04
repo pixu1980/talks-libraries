@@ -8,6 +8,8 @@
  * 2. Notes window responds with 'connected' when it is available
  * 3. This window proceeds to send the current presentation state
  *    to the notes window
+ * 
+ * Copyright (c) 2025 Emiliano "pixu1980" Pisu
  */
 const HeaderPlugin = () => {
   let deck;
