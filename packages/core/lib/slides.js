@@ -172,6 +172,7 @@ addEventListener('DOMContentLoaded', () => {
     },
   });
 
+  // keyboard nav configuration
   deck.configure({
     keyboard: {
       8: 'prev',
