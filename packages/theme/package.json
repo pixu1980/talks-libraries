@@ -11,5 +11,6 @@
   "dependencies": {
     "highlight.js": "11.11.1",
     "reveal.js": "5.2.1"
-  }
+  },
+  "gitHead": "b4fd5ffccd28fc3afc137fde0fd38267c2b712c7"
 }
