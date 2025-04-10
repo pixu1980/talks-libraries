@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Fira Code';
   src: local('Fira Code Light'), local('FiraCode-Light'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-200.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-200.woff') format('woff');
+    url('FiraCode-200.woff2') format('woff2'),
+    url('FiraCode-200.woff') format('woff');
   font-weight: 200;
   font-style: normal;
   font-display: block;
@@ -11,8 +11,8 @@
 @font-face {
   font-family: 'Fira Code';
   src: local('Fira Code Regular'), local('FiraCode-Regular'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-400.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-400.woff') format('woff');
+    url('FiraCode-400.woff2') format('woff2'),
+    url('FiraCode-400.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -21,8 +21,8 @@
 @font-face {
   font-family: 'Fira Code';
   src: local('Fira Code Medium'), local('FiraCode-Medium'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-500.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-500.woff') format('woff');
+    url('FiraCode-500.woff2') format('woff2'),
+    url('FiraCode-500.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: block;
@@ -31,8 +31,8 @@
 @font-face {
   font-family: 'Fira Code';
   src: local('Fira Code Bold'), local('FiraCode-Bold'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-700.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-700.woff') format('woff');
+    url('FiraCode-700.woff2') format('woff2'),
+    url('FiraCode-700.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: block;
@@ -41,8 +41,8 @@
 @font-face {
   font-family: 'Fira Code Retina';
   src: local('Fira Code Retina'), local('FiraCode-Retina'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff') format('woff');
+    url('FiraCode-Retina.woff2') format('woff2'),
+    url('FiraCode-Retina.woff') format('woff');
   font-weight: 900;
   font-style: normal;
   font-display: block;
@@ -51,8 +51,8 @@
 @font-face {
   font-family: 'Fira Code Monospace';
   src: local('Fira Code Retina'), local('FiraCode-Retina'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff') format('woff');
+    url('FiraCode-Retina.woff2') format('woff2'),
+    url('FiraCode-Retina.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   unicode-range: U+0030-0039, U+20A3-20A7, U+002C, U+002E;
@@ -61,8 +61,8 @@
 @font-face {
   font-family: 'Fira Code Monospace Full';
   src: local('Fira Code Retina'), local('FiraCode-Retina'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff2') format('woff2'),
-    url('npm:@ui-ux-engineering/fonts/lib/fonts/FiraCode/FiraCode-Retina.woff') format('woff');
+    url('FiraCode-Retina.woff2') format('woff2'),
+    url('FiraCode-Retina.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

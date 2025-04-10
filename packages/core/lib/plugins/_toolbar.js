@@ -114,17 +114,13 @@ class Toolbar {
       this.addAction('fullscreen', 'F', this.settings.fullscreen, (e) => {
         var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
 
-        if (!document.exitFullscreen) {
-          document.exitFullscreen = document.mozExitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen;
-        }
+        !document.exitFullscreen && (document.exitFullscreen = document.mozExitFullscreen || document.webkitExitFullscreen || document.msExitFullscreen);
 
-        if (fullscreenElement) {
-          // triggering ESC key
-          document.exitFullscreen();
-        } else {
-          // triggering F key
-          this.deck.triggerKey(70);
-        }
+        fullscreenElement
+          ? // triggering ESC key
+            document.exitFullscreen()
+          : // triggering F key
+            this.deck.triggerKey(70);
       });
 
     this.settings.pause &&

@@ -1,0 +1,54 @@
+@layer toolbar {
+  .reveal-toolbar {
+    z-index: 100;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+    position: absolute;
+    left: 30px;
+
+    &.reveal-toolbar-bottom {
+      bottom: 23px;
+    }
+
+    &.reveal-toolbar-top {
+      top: 23px;
+    }
+
+    .reveal-toolbar-button {
+      color: #757575;
+      text-align: center;
+      aspect-ratio: 1;
+      cursor: pointer;
+      background-color: #0000;
+      border: 0;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      font-size: 2rem;
+      display: inline-flex;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .slide-menu-button {
+      position: initial;
+      left: initial;
+      bottom: initial;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    .playback {
+      position: relative;
+      bottom: -17px;
+      left: 4px;
+    }
+  }
+}

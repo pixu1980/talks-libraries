@@ -27,6 +27,7 @@
 
     svg {
       width: 100%;
+      margin-top: -10rem;
     }
 
     .circles {
@@ -131,6 +132,14 @@
       path {
         animation: letter-animation 2.5s alternate forwards;
       }
+    }
+
+    [pixu] {
+      margin: auto;
+      inline-size: 18rem;
+      aspect-ratio: 1;
+      position: absolute;
+      inset: 0;
     }
 
     path {

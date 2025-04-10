@@ -143,25 +143,26 @@ addEventListener('DOMContentLoaded', () => {
       // Specifies where the toolbar will be shown: 'top' or 'bottom'
       position: 'top',
 
-      // If true, the reveal.js-menu will be moved into the toolbar.
-      // Set to false to leave the menu on its own.
-      menu: {
-        content: '<icon class="draft-ui-hamburger"></icon>',
-      },
+      // // If true, the reveal.js-menu will be moved into the toolbar.
+      // // Set to false to leave the menu on its own.
+      // menu: {
+      //   content: '<icon class="draft-ui-icon-hamburger"></icon>',
+      // },
+      menu: false,
 
       // Add button to show the help overlay
       help: {
-        content: '<icon class="draft-ui-circle-info"></icon>',
+        content: '<icon class="draft-ui-icon-circle-info"></icon>',
       },
 
       // Add button to toggle the overview mode on and off
       overview: {
-        content: '<icon class="draft-ui-apps"></icon>',
+        content: '<icon class="draft-ui-icon-apps"></icon>',
       },
 
       // Add button to toggle fullscreen mode for the presentation
       fullscreen: {
-        content: '<icon class="draft-ui-zoom-in"></icon>',
+        content: '<icon class="draft-ui-icon-zoom-in"></icon>',
       },
 
       // Add button to pause (hide) the presentation display

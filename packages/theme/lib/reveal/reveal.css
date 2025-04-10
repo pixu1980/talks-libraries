@@ -1,10 +1,11 @@
-@import 'npm:reveal.js/dist/reset.css' layer(reveal);
-@import 'npm:reveal.js/dist/reveal.css' layer(reveal);
-@import 'npm:reveal.js/dist/theme/black.css' layer(reveal);
-@import 'npm:reveal.js/plugin/highlight/monokai.css' layer(reveal);
+@import 'npm:reveal.js/dist/reset.css' layer(reveal.original);
+@import 'npm:reveal.js/dist/reveal.css' layer(reveal.original);
+@import 'npm:reveal.js/dist/theme/black.css' layer(reveal.original);
+@import 'npm:reveal.js/plugin/highlight/monokai.css' layer(reveal.original);
 
 @import './_media.css' layer(reveal);
 @import './_lists.css' layer(reveal);
+@import './_toolbar.css' layer(reveal);
 @import './_print.css' layer(reveal);
 
 @layer reveal {
