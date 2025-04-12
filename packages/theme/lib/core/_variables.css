@@ -9,7 +9,13 @@
     --font-family--variable--rec-vf: 'RecVF', sans-serif;
 
     --font-ratio: 1.067; /* minor second 15:16 */
-    --font-root: 10px;
+    /* 
+      16px/10px = 0.625, expressed in em
+      makes the font-size reactive to browser settings
+      and makes 1rem = 10px,
+allowing to use rems as a simple division base-10 value
+    */
+    --font-root: 0.625em; 
     --font-base: 1.6rem;
 
     --gutter-base: 1.5rem;
