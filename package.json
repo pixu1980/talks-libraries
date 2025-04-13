@@ -1,6 +1,6 @@
 {
   "name": "pixu-talks-libraries",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A monorepo for my talks, including common slides snippets and styles",
   "repository": "git@github.com:pixu1980/talks-libraries.git",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
