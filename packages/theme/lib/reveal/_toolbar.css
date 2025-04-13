@@ -31,7 +31,7 @@
       display: inline-flex;
 
       &:hover {
-        color: #fff;
+        color: light-dark(#191919, #f0f0f0);
       }
     }
 

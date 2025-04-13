@@ -156,6 +156,11 @@ addEventListener('DOMContentLoaded', () => {
       },
 
       // Add button to toggle the overview mode on and off
+      colorScheme: {
+        content: '<icon class="draft-ui-icon-computer"></icon>',
+      },
+
+      // Add button to toggle the overview mode on and off
       overview: {
         content: '<icon class="draft-ui-icon-apps"></icon>',
       },

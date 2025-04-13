@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'draft-ui-icons';
   src:
-    url('fonts/draft-ui-icons.ttf?1osbmg') format('truetype'),
-    url('fonts/draft-ui-icons.woff?1osbmg') format('woff'),
-    url('fonts/draft-ui-icons.svg?1osbmg#draft-ui-icons') format('svg');
+    url('fonts/draft-ui-icons.ttf?9jqs49') format('truetype'),
+    url('fonts/draft-ui-icons.woff?9jqs49') format('woff'),
+    url('fonts/draft-ui-icons.svg?9jqs49#draft-ui-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -263,4 +263,7 @@
 }
 .draft-ui-icon-zoom-out:before {
   content: "\e94f";
+}
+.draft-ui-icon-moon:before {
+  content: "\e950";
 }

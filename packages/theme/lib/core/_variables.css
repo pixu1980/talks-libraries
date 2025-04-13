@@ -15,16 +15,18 @@
       and makes 1rem = 10px,
 allowing to use rems as a simple division base-10 value
     */
-    --font-root: 0.625em; 
+    --font-root: 0.625em;
     --font-base: 1.6rem;
 
     --gutter-base: 1.5rem;
 
     --r-main-font-size: 4.5rem;
-    --r-heading-color: #f0f0f0;
+    --r-background-color: light-dark(#f0f0f0, #191919);
+    --r-main-color: light-dark(#191919, #f0f0f0);
+    --r-heading-color: light-dark(#191919, #f0f0f0);
     --r-heading-margin: 0;
     --r-heading-text-transform: none;
-    --r-link-color: #ad85d6;
-    --r-highlight-color: #ad85d6;
+    --r-link-color: light-dark(#663399, #ad85d6);
+    --r-highlight-color: light-dark(#663399, #ad85d6);
   }
 }

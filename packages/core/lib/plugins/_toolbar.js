@@ -14,6 +14,7 @@
 const defaults = {
   position: 'top',
   fullscreen: true,
+  colorScheme: true,
   overview: true,
   pause: false,
   notes: false,
@@ -67,6 +68,29 @@ class Toolbar {
     this.addActionButton(settings);
   }
 
+  toggleColorScheme() {
+    let meta = document.querySelector('meta[name="color-scheme"]');
+
+    if (!meta) {
+      document.head.insertAdjacentHTML('beforeend', '<meta name="color-scheme" content="light dark" />');
+      meta = document.querySelector('meta[name="color-scheme"]');
+    }
+
+    const values = ['light', 'dark', 'light dark'];
+    const icons = Object.freeze({
+      light: 'sun',
+      dark: 'moon',
+      'light dark': 'computer',
+    });
+    const current = meta.content.trim();
+
+    // Applica il nuovo valore
+    meta.content = values[(values.indexOf(current) + 1) % values.length];
+
+    const icon = this.dom.toolbar.querySelector('button.reveal-toolbar-button-colorScheme icon');
+    icon.setAttribute('class', `draft-ui-icon-${icons[meta.content]}`);
+  }
+
   init() {
     this.dom.toolbar = document.createElement('div');
     this.dom.toolbar.classList.add('reveal-toolbar');
@@ -97,6 +121,11 @@ class Toolbar {
             { once: true }
           );
         });
+      });
+
+    this.settings.colorScheme &&
+      this.addAction('colorScheme', 'C', this.settings.colorScheme, (e) => {
+        this.toggleColorScheme();
       });
 
     this.settings.overview &&

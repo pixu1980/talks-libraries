@@ -61,7 +61,6 @@
           left: 1.6rem;
           background-color: var(--color-yellow-400);
           border-color: var(--color-gray-400);
-          color: var(--color-gray-400);
         }
 
         &::before {
@@ -71,8 +70,6 @@
       }
 
       &[disabled] {
-        color: var(--color-gray-400);
-
         &::before {
           background-color: transparent;
           border-color: var(--color-gray-700);
@@ -83,8 +80,6 @@
         }
 
         &:hover {
-          color: var(--color-gray-400);
-
           &::before {
             box-shadow: none;
           }
