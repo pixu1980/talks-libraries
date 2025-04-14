@@ -3,6 +3,7 @@
 @import './_dive-in.css' layer(components);
 @import './_examples.css' layer(components);
 @import './_inputs.css' layer(components);
+@import './_links.css' layer(components);
 @import './_pixu.css' layer(components);
 @import './_qrcode.css' layer(components);
 @import './_tabs.css' layer(components);

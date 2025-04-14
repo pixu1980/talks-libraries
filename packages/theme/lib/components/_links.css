@@ -1,0 +1,22 @@
+@layer links {
+  [links] {
+    /* display: flex;
+    gap: 0;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-block-start: 10rem; */
+
+    figure {
+      margin-block-start: 2.5rem;
+
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      img {
+        width: 20vw;
+        aspect-ratio: 1;
+        margin-block-end: 2rem;
+      }
+    }
+  }
+}
