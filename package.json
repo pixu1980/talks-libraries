@@ -11,9 +11,9 @@
     "deps:push": "git add . && git commit -m 'build(deps): bumped external dependencies' && git push",
     "changelog": "changelog -t $(git log --grep='rel(' --format='%H' --max-count=2 | head -n 2 | tail -1)..$(git log --grep='rel(' --format='%H' --max-count=2 | head -n 1) -x rel,build && git add . && git commit --amend --no-edit",
     "rel:push": "git add . && git commit --amend --no-edit && git push -f && git push --tags",
-    "rel:patch": "lerna publish patch && yarn version --patch --no-git-tag-version && yarn rel:push",
-    "rel:minor": "lerna publish minor && yarn version --minor --no-git-tag-version && yarn rel:push",
-    "rel:major": "lerna publish major && yarn version --major --no-git-tag-version && yarn rel:push"
+    "rel:patch": "lerna publish patch && yarn version --patch --no-git-tag-version && yarn changelog &&  yarn rel:push",
+    "rel:minor": "lerna publish minor && yarn version --minor --no-git-tag-version && yarn changelog && yarn rel:push",
+    "rel:major": "lerna publish major && yarn version --major --no-git-tag-version && yarn changelog && yarn rel:push"
   },
   "devDependencies": {
     "lerna": "8.2.1",
