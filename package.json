@@ -1,22 +1,22 @@
 {
   "name": "pixu-talks-libraries",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "description": "A monorepo for my talks, including common slides snippets and styles",
   "repository": "git@github.com:pixu1980/talks-libraries.git",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "install": "lerna exec yarn",
-    "deps": "yarn upgrade-interactive --latest",
+    "install": "lerna exec -- pnpm install && pnpm approve-builds",
+    "deps": "pnpm up --interactive --latest",
     "deps:push": "git add . && git commit -m 'build(deps): bumped external dependencies' && git push",
     "changelog": "changelog -t $(git log --grep='rel(' --format='%H' --max-count=2 | head -n 2 | tail -1)..$(git log --grep='rel(' --format='%H' --max-count=2 | head -n 1) -x rel,build && git add . && git commit --amend --no-edit",
     "rel:push": "git add . && git commit --amend --no-edit && git push -f && git push --tags",
-    "rel:patch": "lerna publish patch && yarn version --patch --no-git-tag-version && yarn changelog &&  yarn rel:push",
-    "rel:minor": "lerna publish minor && yarn version --minor --no-git-tag-version && yarn changelog && yarn rel:push",
-    "rel:major": "lerna publish major && yarn version --major --no-git-tag-version && yarn changelog && yarn rel:push"
+    "rel:patch": "lerna publish patch && pnpm version --patch --no-git-tag-version && pnpm run changelog && pnpm run rel:push",
+    "rel:minor": "lerna publish minor && pnpm version --minor --no-git-tag-version && pnpm run changelog && pnpm run rel:push",
+    "rel:major": "lerna publish major && pnpm version --major --no-git-tag-version && pnpm run changelog && pnpm run rel:push"
   },
   "devDependencies": {
-    "lerna": "8.2.1",
-    "parcel": "2.14.4"
+    "lerna": "9.0.0",
+    "parcel": "2.16.0"
   }
 }

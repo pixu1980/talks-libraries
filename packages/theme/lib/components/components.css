@@ -1,4 +1,5 @@
 @import './_code.css' layer(components);
+@import './_brand.css' layer(components);
 @import './_comparison.css' layer(components);
 @import './_dive-in.css' layer(components);
 @import './_examples.css' layer(components);

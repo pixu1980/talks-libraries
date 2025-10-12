@@ -1,0 +1,14 @@
+@layer brand {
+  [brand] {
+    position: fixed;
+    inset: auto auto 3rem 3rem;
+
+    img {
+      inline-size: 10rem;
+      aspect-ratio: 1;
+
+      border: 2px rebeccapurple;
+      border-radius: 2rem;
+    }
+  }
+}
