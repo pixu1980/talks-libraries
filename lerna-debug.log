@@ -1,0 +1,10 @@
+27 error ExitPromptError: User force closed the prompt with SIGINT
+27 error     at Interface.sigint (/Users/emilianopisu/Projects/talks/talks-libraries/node_modules/.pnpm/@inquirer+core@10.2.2/node_modules/@inquirer/core/dist/commonjs/lib/create-prompt.js:101:37)
+27 error     at Interface.emit (node:events:519:28)
+27 error     at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1128:18)
+27 error     at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+27 error     at ReadStream.emit (node:events:531:35)
+27 error     at emitKeys (node:internal/readline/utils:370:14)
+27 error     at emitKeys.next (<anonymous>)
+27 error     at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+27 error     at ReadStream.emit (node:events:519:28)
