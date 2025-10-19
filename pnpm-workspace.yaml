@@ -1,3 +1,8 @@
+packages:
+  - "packages/core"
+  - "packages/fonts"
+  - "packages/theme"
+  
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'

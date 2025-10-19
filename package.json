@@ -6,7 +6,6 @@
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "install": "lerna exec -- pnpm install && pnpm approve-builds",
     "deps": "pnpm up --interactive --latest",
     "deps:push": "git add . && git commit -m 'build(deps): bumped external dependencies' && git push",
     "changelog": "changelog -t $(git log --grep='rel(' --format='%H' --max-count=2 | head -n 2 | tail -1)..$(git log --grep='rel(' --format='%H' --max-count=2 | head -n 1) -x rel,build && git add . && git commit --amend --no-edit",

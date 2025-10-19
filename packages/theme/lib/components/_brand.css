@@ -2,6 +2,7 @@
   [brand] {
     position: fixed;
     inset: auto auto 3rem 3rem;
+    z-index: 10;
 
     img {
       inline-size: 10rem;
