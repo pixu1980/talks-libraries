@@ -163,7 +163,6 @@
   const { define, get, upgrade } = customElements;
   const { construct } = Reflect || {
     construct(HTMLElement) {
-      debugger;
       return HTMLElement.call(this);
     },
   };
