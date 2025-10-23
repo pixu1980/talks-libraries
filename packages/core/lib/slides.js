@@ -1,4 +1,5 @@
-import './polyfills';
+import './polyfills/index.js';
+
 import Reveal from 'reveal.js';
 import Highlight from 'reveal.js/plugin/highlight/highlight.js';
 import Markdown from 'reveal.js/plugin/markdown/markdown.js';
