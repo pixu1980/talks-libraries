@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'RecVF';
-  src: url('RecVF.woff2') format('woff2 supports variations'),
+  src:
+    url('RecVF.woff2') format('woff2 supports variations'),
     url('RecVF.woff2') format('woff2-variations');
   font-weight: 300 1000;
   font-style: oblique 0deg 14deg;

@@ -12,10 +12,17 @@
     "rel:push": "git add . && git commit --amend --no-edit && git push -f && git push --tags",
     "rel:patch": "lerna publish patch && pnpm version patch --no-git-tag-version && pnpm run changelog && pnpm run rel:push",
     "rel:minor": "lerna publish minor && pnpm version minor --no-git-tag-version && pnpm run changelog && pnpm run rel:push",
-    "rel:major": "lerna publish major && pnpm version major --no-git-tag-version && pnpm run changelog && pnpm run rel:push"
+    "rel:major": "lerna publish major && pnpm version major --no-git-tag-version && pnpm run changelog && pnpm run rel:push",
+    "format:biome": "biome format --write .",
+    "format:prettier": "prettier --write \"**/*.{html,css,md,json,yml,yaml}\"",
+    "format:all": "pnpm -w format:biome && pnpm -w format:prettier",
+    "lint:biome": "biome lint packages/**",
+    "fix:biome": "biome check --write packages/**"
   },
   "devDependencies": {
     "lerna": "9.0.0",
-    "parcel": "2.16.0"
+    "parcel": "2.16.0",
+    "@biomejs/biome": "2.3.3",
+    "prettier": "3.6.2"
   }
 }

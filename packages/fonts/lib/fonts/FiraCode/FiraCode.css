@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'Fira Code';
-  src: local('Fira Code Light'), local('FiraCode-Light'),
+  src:
+    local('Fira Code Light'),
+    local('FiraCode-Light'),
     url('FiraCode-200.woff2') format('woff2'),
     url('FiraCode-200.woff') format('woff');
   font-weight: 200;
@@ -10,7 +12,9 @@
 
 @font-face {
   font-family: 'Fira Code';
-  src: local('Fira Code Regular'), local('FiraCode-Regular'),
+  src:
+    local('Fira Code Regular'),
+    local('FiraCode-Regular'),
     url('FiraCode-400.woff2') format('woff2'),
     url('FiraCode-400.woff') format('woff');
   font-weight: 400;
@@ -20,7 +24,9 @@
 
 @font-face {
   font-family: 'Fira Code';
-  src: local('Fira Code Medium'), local('FiraCode-Medium'),
+  src:
+    local('Fira Code Medium'),
+    local('FiraCode-Medium'),
     url('FiraCode-500.woff2') format('woff2'),
     url('FiraCode-500.woff') format('woff');
   font-weight: 500;
@@ -30,7 +36,9 @@
 
 @font-face {
   font-family: 'Fira Code';
-  src: local('Fira Code Bold'), local('FiraCode-Bold'),
+  src:
+    local('Fira Code Bold'),
+    local('FiraCode-Bold'),
     url('FiraCode-700.woff2') format('woff2'),
     url('FiraCode-700.woff') format('woff');
   font-weight: 700;
@@ -40,7 +48,9 @@
 
 @font-face {
   font-family: 'Fira Code Retina';
-  src: local('Fira Code Retina'), local('FiraCode-Retina'),
+  src:
+    local('Fira Code Retina'),
+    local('FiraCode-Retina'),
     url('FiraCode-Retina.woff2') format('woff2'),
     url('FiraCode-Retina.woff') format('woff');
   font-weight: 900;
@@ -50,7 +60,9 @@
 
 @font-face {
   font-family: 'Fira Code Monospace';
-  src: local('Fira Code Retina'), local('FiraCode-Retina'),
+  src:
+    local('Fira Code Retina'),
+    local('FiraCode-Retina'),
     url('FiraCode-Retina.woff2') format('woff2'),
     url('FiraCode-Retina.woff') format('woff');
   font-weight: normal;
@@ -60,7 +72,9 @@
 
 @font-face {
   font-family: 'Fira Code Monospace Full';
-  src: local('Fira Code Retina'), local('FiraCode-Retina'),
+  src:
+    local('Fira Code Retina'),
+    local('FiraCode-Retina'),
     url('FiraCode-Retina.woff2') format('woff2'),
     url('FiraCode-Retina.woff') format('woff');
   font-weight: normal;

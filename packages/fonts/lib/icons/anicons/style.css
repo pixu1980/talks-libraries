@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'anicons';
-  src: url('fonts/anicons.woff2') format('woff2 supports variations'), url('fonts/anicons.woff2') format('woff2-variations');
+  src:
+    url('fonts/anicons.woff2') format('woff2 supports variations'),
+    url('fonts/anicons.woff2') format('woff2-variations');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -8,7 +10,9 @@
 
 @font-face {
   font-family: 'anicons-color';
-  src: url('fonts/anicons-color.woff2') format('woff2 supports variations'), url('fonts/anicons-color.woff2') format('woff2-variations');
+  src:
+    url('fonts/anicons-color.woff2') format('woff2 supports variations'),
+    url('fonts/anicons-color.woff2') format('woff2-variations');
   font-weight: normal;
   font-style: normal;
   font-display: block;

@@ -1,9 +1,26 @@
-/*
- * Reveal.js menu plugin
- * MIT licensed
- * 
+/**
+ * Reveal.js Menu Plugin
+ *
+ * Provides a slide navigation side menu with panels for slides, themes, and settings.
+ *
+ * Features:
+ * - Keyboard navigation and toggling
+ * - Mouse navigation with selection management
+ * - Sticky and auto open options
+ * - Panelized UI (slides, themes, transitions, help)
+ * - Highlights the current slide and keeps items visible on selection
+ *
+ * Usage:
+ * - Register this plugin with Reveal and configure via `menu` settings.
+ * - Default settings are defined in the `defaults` object.
+ *
+ * Notes:
+ * - The plugin manipulates DOM elements within a container added to the Reveal root.
+ * - Several helper methods operate on `this.dom` to manage the menu lifecycle.
+ * - For very long slide decks, consider debouncing UI updates.
+
  * Copyright (c) 2025 Emiliano "pixu1980" Pisu
- */
+*/
 
 const defaults = {
   side: 'right',
@@ -12,14 +29,7 @@ const defaults = {
   hideMissingTitles: false,
   useTextContentForMissingTitles: false,
   markers: true,
-  transitions: [
-    'None',
-    'Fade',
-    'Slide',
-    'Convex',
-    'Concave',
-    'Zoom'
-  ],
+  transitions: ['None', 'Fade', 'Slide', 'Convex', 'Concave', 'Zoom'],
   openButton: true,
   openSlideNumber: false,
   keyboard: true,
@@ -27,7 +37,7 @@ const defaults = {
   autoOpen: true,
   delayInit: false,
   openOnInit: false,
-}
+};
 
 class Menu {
   deck; // reveal instance
@@ -64,7 +74,7 @@ class Menu {
       this.dom.menu.querySelector('nav.slide-menu').removeEventListener('mousemove', tempMouseMoveEventHandler);
       //XXX this should select the item under the mouse
       this.mouseSelectionEnabled = true;
-    }
+    };
 
     this.dom.menu.querySelector('nav.slide-menu').addEventListener('mousemove', tempMouseMoveEventHandler);
   }
@@ -86,8 +96,7 @@ class Menu {
 
   scrollItemToBottom(el) {
     this.disableMouseSelection();
-    el.offsetParent.scrollTop =
-      el.offsetTop - el.offsetParent.offsetHeight + el.offsetHeight;
+    el.offsetParent.scrollTop = el.offsetTop - el.offsetParent.offsetHeight + el.offsetHeight;
     this.reenableMouseSelection();
   }
 
@@ -118,83 +127,50 @@ class Menu {
         // k, up
         case 75:
         case 38:
-          var currItem =
-            this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.selected') ||
-            this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.active');
+          var currItem = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.selected') || this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.active');
           if (currItem) {
-            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-              (item) => {
-                item.classList.remove('selected');
-              }
-            );
-            var nextItem =
-              this.dom.menu.querySelector(
-                '.active-menu-panel .slide-menu-items li[data-item="' +
-                (parseInt(currItem.getAttribute('data-item')) - 1) +
-                '"]'
-              ) || currItem;
+            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+              item.classList.remove('selected');
+            });
+            var nextItem = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li[data-item="' + (parseInt(currItem.getAttribute('data-item')) - 1) + '"]') || currItem;
             this.selectItem(nextItem);
           } else {
-            var item = this.dom.menu.querySelector(
-              '.active-menu-panel .slide-menu-items li.slide-menu-item'
-            );
+            var item = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.slide-menu-item');
             if (item) this.selectItem(item);
           }
           break;
         // j, down
         case 74:
         case 40:
-          var currItem =
-            this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.selected') ||
-            this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.active');
+          var currItem = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.selected') || this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.active');
           if (currItem) {
-            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-              (item) => {
-                item.classList.remove('selected');
-              }
-            );
-            var nextItem =
-              this.dom.menu.querySelector(
-                '.active-menu-panel .slide-menu-items li[data-item="' +
-                (parseInt(currItem.getAttribute('data-item')) + 1) +
-                '"]'
-              ) || currItem;
+            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+              item.classList.remove('selected');
+            });
+            var nextItem = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li[data-item="' + (parseInt(currItem.getAttribute('data-item')) + 1) + '"]') || currItem;
             this.selectItem(nextItem);
           } else {
-            var item = this.dom.menu.querySelector(
-              '.active-menu-panel .slide-menu-items li.slide-menu-item'
-            );
+            var item = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.slide-menu-item');
             if (item) this.selectItem(item);
           }
           break;
         // pageup, u
         case 33:
         case 85:
-          var itemsAbove = this.dom.menu.querySelectorAll(
-            '.active-menu-panel .slide-menu-items li'
-          ).filter((item) => window.uiuxEngineering.visibleOffset(item) > 0);
+          var itemsAbove = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) > 0);
 
-          var visibleItems = this.dom.menu.querySelectorAll(
-            '.active-menu-panel .slide-menu-items li'
-          ).filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
+          var visibleItems = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
 
           var firstVisible =
-            itemsAbove.length > 0 &&
-              Math.abs(window.uiuxEngineering.visibleOffset(itemsAbove[itemsAbove.length - 1])) <
-              itemsAbove[itemsAbove.length - 1].clientHeight
+            itemsAbove.length > 0 && Math.abs(window.uiuxEngineering.visibleOffset(itemsAbove[itemsAbove.length - 1])) < itemsAbove[itemsAbove.length - 1].clientHeight
               ? itemsAbove[itemsAbove.length - 1]
               : visibleItems[0];
           if (firstVisible) {
-            if (
-              firstVisible.classList.contains('selected') &&
-              itemsAbove.length > 0
-            ) {
+            if (firstVisible.classList.contains('selected') && itemsAbove.length > 0) {
               // at top of viewport already, page scroll (if not at start)
               // ...move selected item to bottom, and change selection to last fully visible item at top
               this.scrollItemToBottom(firstVisible);
-              visibleItems = this.dom.menu.querySelectorAll(
-                '.active-menu-panel .slide-menu-items li'
-              ).filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
+              visibleItems = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
 
               if (visibleItems[0] == firstVisible) {
                 // prev item is still beyond the viewport (for custom panels)
@@ -203,11 +179,9 @@ class Menu {
                 firstVisible = visibleItems[0];
               }
             }
-            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-              (item) => {
-                item.classList.remove('selected');
-              }
-            );
+            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+              item.classList.remove('selected');
+            });
             this.selectItem(firstVisible);
             // ensure selected item is positioned at the top of the viewport
             this.scrollItemToTop(firstVisible);
@@ -216,30 +190,17 @@ class Menu {
         // pagedown, d
         case 34:
         case 68:
-          var visibleItems = this.dom.menu.querySelectorAll(
-            '.active-menu-panel .slide-menu-items li'
-          ).filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
-          var itemsBelow = this.dom.menu.querySelectorAll(
-            '.active-menu-panel .slide-menu-items li'
-          ).filter((item) => window.uiuxEngineering.visibleOffset(item) < 0);
+          var visibleItems = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
+          var itemsBelow = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) < 0);
 
-          var lastVisible =
-            itemsBelow.length > 0 &&
-              Math.abs(window.uiuxEngineering.visibleOffset(itemsBelow[0])) < itemsBelow[0].clientHeight
-              ? itemsBelow[0]
-              : visibleItems[visibleItems.length - 1];
+          var lastVisible = itemsBelow.length > 0 && Math.abs(window.uiuxEngineering.visibleOffset(itemsBelow[0])) < itemsBelow[0].clientHeight ? itemsBelow[0] : visibleItems[visibleItems.length - 1];
 
           if (lastVisible) {
-            if (
-              lastVisible.classList.contains('selected') &&
-              itemsBelow.length > 0
-            ) {
+            if (lastVisible.classList.contains('selected') && itemsBelow.length > 0) {
               // at bottom of viewport already, page scroll (if not at end)
               // ...move selected item to top, and change selection to last fully visible item at bottom
               this.scrollItemToTop(lastVisible);
-              visibleItems = this.dom.menu.querySelectorAll(
-                '.active-menu-panel .slide-menu-items li'
-              ).filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
+              visibleItems = this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').filter((item) => window.uiuxEngineering.visibleOffset(item) == 0);
               if (visibleItems[visibleItems.length - 1] == lastVisible) {
                 // next item is still beyond the viewport (for custom panels)
                 lastVisible = itemsBelow[0];
@@ -247,11 +208,9 @@ class Menu {
                 lastVisible = visibleItems[visibleItems.length - 1];
               }
             }
-            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-              (item) => {
-                item.classList.remove('selected');
-              }
-            );
+            this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+              item.classList.remove('selected');
+            });
             this.selectItem(lastVisible);
             // ensure selected item is positioned at the bottom of the viewport
             this.scrollItemToBottom(lastVisible);
@@ -259,14 +218,10 @@ class Menu {
           break;
         // home
         case 36:
-          this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-            (item) => {
-              item.classList.remove('selected');
-            }
-          );
-          var item = this.dom.menu.querySelector(
-            '.active-menu-panel .slide-menu-items li:first-of-type'
-          );
+          this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+            item.classList.remove('selected');
+          });
+          var item = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li:first-of-type');
           if (item) {
             item.classList.add('selected');
             this.keepVisible(item);
@@ -274,14 +229,10 @@ class Menu {
           break;
         // end
         case 35:
-          this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach(
-            (item) => {
-              item.classList.remove('selected');
-            }
-          );
-          var item = this.dom.menu.querySelector(
-            '.active-menu-panel .slide-menu-items:last-of-type li:last-of-type'
-          );
+          this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li').forEach((item) => {
+            item.classList.remove('selected');
+          });
+          var item = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items:last-of-type li:last-of-type');
           if (item) {
             item.classList.add('selected');
             this.keepVisible(item);
@@ -290,9 +241,7 @@ class Menu {
         // space, return
         case 32:
         case 13:
-          var currItem = this.dom.menu.querySelector(
-            '.active-menu-panel .slide-menu-items li.selected'
-          );
+          var currItem = this.dom.menu.querySelector('.active-menu-panel .slide-menu-items li.selected');
           if (currItem) {
             this.openItem(currItem, true);
           }
@@ -311,9 +260,7 @@ class Menu {
     if (event) event.preventDefault();
     if (!this.isOpen()) {
       document.querySelector('body').classList.add('slide-menu-active');
-      this.dom.reveal.classList.add(
-        'has-' + this.settings.effect + '-' + this.settings.side
-      );
+      this.dom.reveal.classList.add('has-' + this.settings.effect + '-' + this.settings.side);
       this.dom.menu.querySelector('.slide-menu').classList.add('active');
       this.dom.menu.querySelector('.slide-menu-overlay').classList.add('active');
 
@@ -334,11 +281,9 @@ class Menu {
         this.dom.menu.querySelectorAll('div[data-panel="Transitions"] li').forEach((i) => {
           i.classList.remove('active');
         });
-        this.dom.menu.querySelectorAll('li[data-transition="' + this.settings.transition + '"]').forEach(
-          (i) => {
-            i.classList.add('active');
-          }
-        );
+        this.dom.menu.querySelectorAll('li[data-transition="' + this.settings.transition + '"]').forEach((i) => {
+          i.classList.add('active');
+        });
       }
 
       // set item selections to match active items
@@ -354,9 +299,7 @@ class Menu {
     if (event) event.preventDefault();
     if (!this.settings.sticky || force) {
       document.querySelector('body').classList.remove('slide-menu-active');
-      this.dom.reveal.classList.remove(
-        'has-' + this.settings.effect + '-' + this.settings.side
-      );
+      this.dom.reveal.classList.remove('has-' + this.settings.effect + '-' + this.settings.side);
       this.dom.menu.querySelector('.slide-menu').classList.remove('active');
       this.dom.menu.querySelector('.slide-menu-overlay').classList.remove('active');
       this.dom.menu.querySelectorAll('.slide-menu-panel li.selected').forEach((i) => {
@@ -383,46 +326,23 @@ class Menu {
     if (typeof ref !== 'string') {
       panel = event.currentTarget.getAttribute('data-panel');
     }
-    this.dom.menu.querySelector('.slide-menu-toolbar > li.active-toolbar-button').classList.remove(
-      'active-toolbar-button'
-    );
-    this.dom.menu.querySelector('li[data-panel="' + panel + '"]').classList.add(
-      'active-toolbar-button'
-    );
-    this.dom.menu.querySelector('.slide-menu-panel.active-menu-panel').classList.remove(
-      'active-menu-panel'
-    );
-    this.dom.menu.querySelector('div[data-panel="' + panel + '"]').classList.add(
-      'active-menu-panel'
-    );
+    this.dom.menu.querySelector('.slide-menu-toolbar > li.active-toolbar-button').classList.remove('active-toolbar-button');
+    this.dom.menu.querySelector('li[data-panel="' + panel + '"]').classList.add('active-toolbar-button');
+    this.dom.menu.querySelector('.slide-menu-panel.active-menu-panel').classList.remove('active-menu-panel');
+    this.dom.menu.querySelector('div[data-panel="' + panel + '"]').classList.add('active-menu-panel');
   }
 
   nextPanel() {
-    var next =
-      (parseInt(this.dom.menu.querySelector('.active-toolbar-button').getAttribute('data-button')) +
-        1) %
-      this.dom.buttons.length;
-    this.openPanel(
-      null,
-      this.dom.menu.querySelector('.toolbar-panel-button[data-button="' + next + '"]').getAttribute(
-        'data-panel'
-      )
-    );
+    var next = (parseInt(this.dom.menu.querySelector('.active-toolbar-button').getAttribute('data-button')) + 1) % this.dom.buttons.length;
+    this.openPanel(null, this.dom.menu.querySelector('.toolbar-panel-button[data-button="' + next + '"]').getAttribute('data-panel'));
   }
 
   prevPanel() {
-    var next =
-      parseInt(this.dom.menu.querySelector('.active-toolbar-button').getAttribute('data-button')) -
-      1;
+    var next = parseInt(this.dom.menu.querySelector('.active-toolbar-button').getAttribute('data-button')) - 1;
     if (next < 0) {
       next = this.dom.buttons.length - 1;
     }
-    this.openPanel(
-      null,
-      this.dom.menu.querySelector('.toolbar-panel-button[data-button="' + next + '"]').getAttribute(
-        'data-panel'
-      )
-    );
+    this.openPanel(null, this.dom.menu.querySelector('.toolbar-panel-button[data-button="' + next + '"]').getAttribute('data-panel'));
   }
 
   openItem(item, force) {
@@ -450,14 +370,7 @@ class Menu {
 
     var link = this.dom.menu.querySelector('a', item);
     if (link) {
-      if (
-        force ||
-        !this.settings.sticky ||
-        (this.settings.autoOpen && link.href.startsWith('#')) ||
-        link.href.startsWith(
-          window.location.origin + window.location.pathname + '#'
-        )
-      ) {
+      if (force || !this.settings.sticky || (this.settings.autoOpen && link.href.startsWith('#')) || link.href.startsWith(window.location.origin + window.location.pathname + '#')) {
         link.click();
       }
     }
@@ -474,23 +387,21 @@ class Menu {
 
   highlightCurrentSlide() {
     var state = this.deck.getState();
-    this.dom.menu.querySelectorAll('li.slide-menu-item, li.slide-menu-item-vertical').forEach(
-      (item) => {
-        item.classList.remove('past');
-        item.classList.remove('active');
-        item.classList.remove('future');
+    this.dom.menu.querySelectorAll('li.slide-menu-item, li.slide-menu-item-vertical').forEach((item) => {
+      item.classList.remove('past');
+      item.classList.remove('active');
+      item.classList.remove('future');
 
-        var h = parseInt(item.getAttribute('data-slide-h'));
-        var v = parseInt(item.getAttribute('data-slide-v'));
-        if (h < state.indexh || (h === state.indexh && v < state.indexv)) {
-          item.classList.add('past');
-        } else if (h === state.indexh && v === state.indexv) {
-          item.classList.add('active');
-        } else {
-          item.classList.add('future');
-        }
+      var h = parseInt(item.getAttribute('data-slide-h'));
+      var v = parseInt(item.getAttribute('data-slide-v'));
+      if (h < state.indexh || (h === state.indexh && v < state.indexv)) {
+        item.classList.add('past');
+      } else if (h === state.indexh && v === state.indexv) {
+        item.classList.add('active');
+      } else {
+        item.classList.add('future');
       }
-    );
+    });
   }
 
   // matchRevealStyle() {
@@ -503,8 +414,7 @@ class Menu {
   addToolbarButton(title, ref, icon, style, fn, active) {
     var attrs = {
       'data-button': '' + this.dom.buttons.length + 1,
-      class:
-        'toolbar-panel-button' + (active ? ' active-toolbar-button' : '')
+      class: 'toolbar-panel-button' + (active ? ' active-toolbar-button' : ''),
     };
     if (ref) {
       attrs['data-panel'] = ref;
@@ -517,10 +427,7 @@ class Menu {
       button.innerHTML = icon + '</i>';
     }
     button.appendChild(this.create('br'), this.dom.menu.querySelector('i', button));
-    button.appendChild(
-      this.create('span', { class: 'slide-menu-toolbar-label' }, title),
-      this.dom.menu.querySelector('i', button)
-    );
+    button.appendChild(this.create('span', { class: 'slide-menu-toolbar-label' }, title), this.dom.menu.querySelector('i', button));
     button.onclick = fn;
 
     this.dom.buttons.push(button);
@@ -542,11 +449,7 @@ class Menu {
     var link = '/#/' + h;
     if (typeof v === 'number' && !isNaN(v)) link += '/' + v;
 
-    var title =
-      this.text('[data-menu-title]', section) ||
-      this.text('[data-id="slide-title"]', section) ||
-      this.text('.menu-title', section) ||
-      this.text(this.settings.titleSelector, section);
+    var title = this.text('[data-menu-title]', section) || this.text('[data-id="slide-title"]', section) || this.text('.menu-title', section) || this.text(this.settings.titleSelector, section);
 
     if (!title && this.settings.useTextContentForMissingTitles) {
       // attempt to figure out a title based on the text in the slide
@@ -577,21 +480,17 @@ class Menu {
       class: type,
       'data-item': i,
       'data-slide-h': h,
-      'data-slide-v': v === undefined ? 0 : v
+      'data-slide-v': v === undefined ? 0 : v,
     });
 
     if (this.settings.markers) {
-      item.appendChild(
-        this.create('i', { class: 'fas fa-check-circle fa-fw past' })
-      );
+      item.appendChild(this.create('i', { class: 'fas fa-check-circle fa-fw past' }));
       item.appendChild(
         this.create('i', {
-          class: 'fas fa-arrow-alt-circle-right fa-fw active'
+          class: 'fas fa-arrow-alt-circle-right fa-fw active',
         })
       );
-      item.appendChild(
-        this.create('i', { class: 'far fa-circle fa-fw future' })
-      );
+      item.appendChild(this.create('i', { class: 'far fa-circle fa-fw future' }));
     }
 
     if (this.settings.numbers) {
@@ -623,44 +522,29 @@ class Menu {
           if (typeof v === 'number' && !isNaN(v)) value.push('.', v + 1);
       }
 
-      item.appendChild(
-        this.create(
-          'span',
-          { class: 'slide-menu-item-number' },
-          value.join('') + '. '
-        )
-      );
+      item.appendChild(this.create('span', { class: 'slide-menu-item-number' }, value.join('') + '. '));
     }
 
-    item.appendChild(
-      this.create('span', { class: 'slide-menu-item-title' }, title)
-    );
+    item.appendChild(this.create('span', { class: 'slide-menu-item-title' }, title));
 
     return item;
   }
 
   createSlideMenu() {
-    if (
-      !this.dom.menu.querySelector(
-        'section[data-markdown]:not([data-markdown-parsed])'
-      )
-    ) {
+    if (!this.dom.menu.querySelector('section[data-markdown]:not([data-markdown-parsed])')) {
       var panel = this.create('div', {
         'data-panel': 'Slides',
-        class: 'slide-menu-panel active-menu-panel'
+        class: 'slide-menu-panel active-menu-panel',
       });
       panel.appendChild(this.create('ul', { class: 'slide-menu-items' }));
       this.dom.panels.appendChild(panel);
-      var items = this.dom.menu.querySelector(
-        '.slide-menu-panel[data-panel="Slides"] > .slide-menu-items'
-      );
+      var items = this.dom.menu.querySelector('.slide-menu-panel[data-panel="Slides"] > .slide-menu-items');
       var slideCount = 0;
       this.dom.reveal.querySelectorAll('.slides > section').forEach((section, h) => {
         var subsections = section.querySelectorAll('section');
         if (subsections.length > 0) {
           subsections.forEach((subsection, v) => {
-            var type =
-              v === 0 ? 'slide-menu-item' : 'slide-menu-item-vertical';
+            var type = v === 0 ? 'slide-menu-item' : 'slide-menu-item-vertical';
             var item = this.generateItem(type, subsection, slideCount, h, v);
             if (item) {
               items.appendChild(item);
@@ -668,23 +552,16 @@ class Menu {
             slideCount++;
           });
         } else {
-          var item = this.generateItem(
-            'slide-menu-item',
-            section,
-            slideCount,
-            h
-          );
+          var item = this.generateItem('slide-menu-item', section, slideCount, h);
           if (item) {
             items.appendChild(item);
           }
           slideCount++;
         }
       });
-      this.dom.menu.querySelectorAll('.slide-menu-item, .slide-menu-item-vertical').forEach(
-        (i) => {
-          i.onclick = (e) => this.clicked(e);
-        }
-      );
+      this.dom.menu.querySelectorAll('.slide-menu-item, .slide-menu-item-vertical').forEach((i) => {
+        i.onclick = (e) => this.clicked(e);
+      });
       this.highlightCurrentSlide();
     } else {
       // wait for markdown to be loaded and parsed
@@ -694,27 +571,21 @@ class Menu {
 
   handleMouseHighlight(event) {
     if (this.mouseSelectionEnabled) {
-      this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li.selected').forEach(
-        (i) => {
-          i.classList.remove('selected');
-        }
-      );
+      this.dom.menu.querySelectorAll('.active-menu-panel .slide-menu-items li.selected').forEach((i) => {
+        i.classList.remove('selected');
+      });
       event.currentTarget.classList.add('selected');
     }
   }
 
-
   initMenu() {
     // if (!initialized) {
     this.dom.panels = this.create('nav', {
-      class: 'slide-menu slide-menu--' + this.settings.side
+      class: 'slide-menu slide-menu--' + this.settings.side,
     });
 
     if (typeof this.settings.width === 'string') {
-      if (
-        ['normal', 'wide', 'third', 'half', 'full'].indexOf(this.settings.width) !=
-        -1
-      ) {
+      if (['normal', 'wide', 'third', 'half', 'full'].indexOf(this.settings.width) != -1) {
         this.dom.panels.classList.add('slide-menu--' + this.settings.width);
       } else {
         this.dom.panels.classList.add('slide-menu--custom');
@@ -751,23 +622,15 @@ class Menu {
     // }
 
     if (this.settings.transitions) {
-      this.addToolbarButton(
-        'Transitions',
-        'Transitions',
-        'fa-sticky-note',
-        'fas',
-        this.openPanel.bind(this)
-      );
+      this.addToolbarButton('Transitions', 'Transitions', 'fa-sticky-note', 'fas', this.openPanel.bind(this));
     }
     var button = this.create('li', {
       id: 'close',
-      class: 'toolbar-panel-button'
+      class: 'toolbar-panel-button',
     });
     button.appendChild(this.create('i', { class: 'fas fa-times' }));
     button.appendChild(this.create('br'));
-    button.appendChild(
-      this.create('span', { class: 'slide-menu-toolbar-label' }, 'Close')
-    );
+    button.appendChild(this.create('span', { class: 'slide-menu-toolbar-label' }, 'Close'));
     button.onclick = () => {
       this.closeMenu(null, true);
     };
@@ -875,7 +738,7 @@ class Menu {
     if (this.settings.transitions) {
       var panel = this.create('div', {
         class: 'slide-menu-panel',
-        'data-panel': 'Transitions'
+        'data-panel': 'Transitions',
       });
       this.dom.panels.appendChild(panel);
       var menu = this.create('ul', { class: 'slide-menu-items' });
@@ -886,7 +749,7 @@ class Menu {
           {
             class: 'slide-menu-item',
             'data-transition': name.toLowerCase(),
-            'data-item': '' + (i + 1)
+            'data-item': '' + (i + 1),
           },
           name
         );
@@ -931,30 +794,24 @@ class Menu {
         var data;
         try {
           data = JSON.parse(event.data);
-        } catch (e) { }
+        } catch (e) {}
         if (data && data.method === 'triggerKey') {
           this.onDocumentKeyDown({
             keyCode: data.args[0],
-            stopImmediatePropagation: () => { }
+            stopImmediatePropagation: () => {},
           });
         }
       });
 
       // Prevent reveal from processing keyboard events when the menu is open
-      if (
-        this.settings.keyboardCondition &&
-        typeof this.settings.keyboardCondition === 'function'
-      ) {
+      if (this.settings.keyboardCondition && typeof this.settings.keyboardCondition === 'function') {
         // combine user defined keyboard condition with the menu's own condition
         this.settings.keyboardCondition = (event) => this.settings.keyboardCondition(event) && (!this.isOpen() || event.keyCode == 77);
       } else {
         this.settings.keyboardCondition = (event) => !this.isOpen() || event.keyCode == 77;
       }
 
-      this.deck.addKeyBinding(
-        { keyCode: 77, key: 'M', description: 'Toggle menu' },
-        (e) => this.toggle(e)
-      );
+      this.deck.addKeyBinding({ keyCode: 77, key: 'M', description: 'Toggle menu' }, (e) => this.toggle(e));
     }
 
     if (this.settings.openOnInit) {
@@ -971,10 +828,7 @@ class Menu {
     this.dom.reveal.parentElement.appendChild(this.dom.menu);
 
     // do not load the menu in the upcoming slide panel in the speaker notes
-    if (
-      !(this.deck.isSpeakerNotes() &&
-        window.location.search.endsWith('controls=false'))
-    ) {
+    if (!(this.deck.isSpeakerNotes() && window.location.search.endsWith('controls=false'))) {
       if (!this.settings.delayInit) this.initMenu();
       this.deck.dispatchEvent('menu-ready', this, true);
     }

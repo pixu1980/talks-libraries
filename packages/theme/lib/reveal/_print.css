@@ -1,7 +1,7 @@
 @layer print {
   /*********************************************
-   * PRINT BACKGROUND
-   *********************************************/
+	 * PRINT BACKGROUND
+	 *********************************************/
   @media print {
     .backgrounds {
       background-color: #2b292a;

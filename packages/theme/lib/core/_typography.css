@@ -6,7 +6,7 @@
       and makes 1rem = 10px,
 allowing to use rems as a simple division base-10 value
     */
-    font-size: 0.625em; 
+    font-size: 0.625em;
   }
 
   body {

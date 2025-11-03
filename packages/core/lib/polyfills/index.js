@@ -1,2 +1,2 @@
-import './_customElements.js';
-import './_strings.js';
+import "./_customElements.js";
+import "./_strings.js";

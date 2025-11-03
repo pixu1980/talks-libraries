@@ -48,7 +48,7 @@ window.pixuTalks = {
         JSON.stringify({
           namespace: 'reveal',
           eventName: type,
-          state: getState()
+          state: getState(),
         }),
         '*'
       );
@@ -66,11 +66,17 @@ window.pixuTalks = {
   },
   visibleOffset(el) {
     var offsetFromTop = this.getOffset(el).top - el.offsetParent.offsetTop;
-    if (offsetFromTop < 0) return -offsetFromTop;
-    var offsetFromBottom =
-      el.offsetParent.offsetHeight -
-      (el.offsetTop - el.offsetParent.scrollTop + el.offsetHeight);
-    if (offsetFromBottom < 0) return offsetFromBottom;
+
+    if (offsetFromTop < 0) {
+      return -offsetFromTop;
+    }
+
+    var offsetFromBottom = el.offsetParent.offsetHeight - (el.offsetTop - el.offsetParent.scrollTop + el.offsetHeight);
+
+    if (offsetFromBottom < 0) {
+      return offsetFromBottom;
+    }
+
     return 0;
   },
   // modified from math plugin
@@ -129,5 +135,5 @@ window.pixuTalks = {
     }
     if (content) el.innerHTML = content;
     return el;
-  }
-}
+  },
+};

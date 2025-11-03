@@ -1,0 +1,34 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.3/schema.json",
+  "files": {
+    "includes": ["packages/**/*.{js,jsx,ts,tsx,cjs,mjs}"],
+    "ignoreUnknown": false,
+    "maxSize": 1048576
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "suspicious": {
+        "noConsole": "off",
+        "noAssignInExpressions": "off"
+      },
+      "style": {
+        "useConst": "warn",
+        "useTemplate": "warn",
+        "useShorthandAssign": "warn"
+      },
+      "complexity": {
+        "useOptionalChain": "warn",
+        "noExtraBooleanCast": "warn",
+        "useArrowFunction": "warn"
+      },
+      "correctness": {
+        "noUnusedFunctionParameters": "warn"
+      }
+    }
+  }
+}
