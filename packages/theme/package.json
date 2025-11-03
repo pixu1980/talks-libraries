@@ -1,6 +1,6 @@
 {
   "name": "@pixu-talks/theme",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Common Pixu talks theme",
   "main": "lib/index.css",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
