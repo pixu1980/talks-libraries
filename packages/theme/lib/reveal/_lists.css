@@ -1,7 +1,5 @@
 @layer lists {
-  ol,
-  dl,
-  ul {
+  :is(ol, dl, ul) {
     display: inline-block;
     text-align: left;
     margin: 0 0 0 1em;
@@ -28,7 +26,7 @@
     margin-left: 4rem;
   }
 
-å  dt {
+  dt {
     font-weight: bold;
   }
 

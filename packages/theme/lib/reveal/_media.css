@@ -1,8 +1,6 @@
 @layer media {
   /* Ensure certain elements are never larger than the slide itself */
-  img,
-  video,
-  iframe {
+  :where(img, video, iframe) {
     max-width: 95%;
     max-height: 95%;
   }
