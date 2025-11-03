@@ -1,5 +1,5 @@
-@import './reveal/reveal.css' layer(pixu-talk);
-@import './helpers/helpers.css' layer(pixu-talk);
-@import './core/core.css' layer(pixu-talk);
-@import './animations/animations.css' layer(pixu-talk);
-@import './components/components.css' layer(pixu-talk);
+@import './reveal/reveal.css' layer(pixu-talks);
+@import './helpers/helpers.css' layer(pixu-talks);
+@import './core/core.css' layer(pixu-talks);
+@import './animations/animations.css' layer(pixu-talks);
+@import './components/components.css' layer(pixu-talks);
