@@ -12,49 +12,54 @@
  *   The computed values are written to `--mouse-x` and `--mouse-y` on the
  *   `stack-container`, enabling CSS driven parallax/tilt effects.
  *
+ * Lifecycle:
+ * - Registered as the `dive-in` custom element.
+ * - Initializes when the element is connected and cleans up listeners when it
+ *   is disconnected.
+
  * Performance notes:
  * - The `mousemove` handler writes CSS variables on every event. For complex
  *   scenes consider throttling with requestAnimationFrame.
  */
-// DiveIn stacked container component
-addEventListener("DOMContentLoaded", () => {
-	const diveIn = document.querySelector("dive-in");
-	const stackContainer = diveIn && diveIn.querySelector("stack-container");
+class DiveInElement extends HTMLElement {
+  constructor() {
+    super();
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+  }
 
-	if (stackContainer) {
-		const stackItems = [
-			...stackContainer.querySelectorAll("stack-item"),
-		].reverse();
+  connectedCallback() {
+    this.refreshStack();
+    document.addEventListener('mousemove', this.handleMouseMove);
+  }
 
-		for (let i = 0; i < stackItems.length; i++) {
-			// Expose a stable index to CSS for transforms/filters/z layering
-			stackItems[i].style.setProperty("--index", i);
-		}
+  disconnectedCallback() {
+    document.removeEventListener('mousemove', this.handleMouseMove);
+  }
 
-		document.addEventListener("mousemove", (e) => {
-			// Viewport dimensions
-			let vw = window.innerWidth;
-			let vh = window.innerHeight;
+  refreshStack() {
+    const stackContainer = this.querySelector('stack-container');
+    if (!stackContainer) return;
+    const stackItems = [...stackContainer.querySelectorAll('stack-item')].reverse();
 
-			// Viewport center
-			let vc = {
-				x: vw / 2,
-				y: vh / 2,
-			};
+    for (let index = 0; index < stackItems.length; index += 1) {
+      stackItems[index].style.setProperty('--index', index);
+    }
+  }
 
-			// Cursor coordinates
-			let x = e.clientX;
-			let y = e.clientY;
+  handleMouseMove(event) {
+    const stackContainer = this.querySelector('stack-container');
+    if (!stackContainer) return;
 
-			// Signed offset from center: left/up are negative, right/down positive
-			let transformOffset = {
-				x: `${-(x <= vc.x ? -(vc.x - x) : x - vc.x)}px`,
-				y: `${-(y <= vc.y ? -(vc.y - y) : y - vc.y)}px`,
-			};
+    const viewportCenterX = window.innerWidth / 2;
+    const viewportCenterY = window.innerHeight / 2;
+    const offsetX = viewportCenterX - event.clientX;
+    const offsetY = viewportCenterY - event.clientY;
 
-			// Feed CSS variables for parallax-like effects
-			stackContainer.style.setProperty("--mouse-x", transformOffset.x);
-			stackContainer.style.setProperty("--mouse-y", transformOffset.y);
-		});
-	}
-});
+    stackContainer.style.setProperty('--mouse-x', `${offsetX}px`);
+    stackContainer.style.setProperty('--mouse-y', `${offsetY}px`);
+  }
+}
+
+if (!customElements.get('dive-in')) {
+  customElements.define('dive-in', DiveInElement);
+}

@@ -22,7 +22,7 @@
   "devDependencies": {
     "lerna": "9.0.7",
     "parcel": "2.16.4",
-    "@biomejs/biome": "2.4.8",
+    "@biomejs/biome": "2.4.9",
     "prettier": "3.8.1"
   }
 }

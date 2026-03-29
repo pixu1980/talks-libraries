@@ -14,22 +14,24 @@
  * ```
  * Then in CSS you can refer to `--stagger--index` to offset animations/timings.
  *
- * Notes:
- * - This script runs after DOMContentLoaded and does not observe dynamic DOM
- *   changes. If children are added later, you will need to re-run the logic.
- * - Known issue: the original implementation contained two bugs (left intact
- *   to avoid behavioral changes). See TODOs below.
+ * Lifecycle:
+ * - Registered as the `stagger` custom element.
+ * - Recomputes child indexes when the element is connected.
  */
-// Stagger animation components
-addEventListener("DOMContentLoaded", () => {
-	const staggers = [...document.querySelectorAll("stagger")];
+class StaggerElement extends HTMLElement {
+  connectedCallback() {
+    this.refreshItems();
+  }
 
-	for (const stagger of staggers) {
-		const staggerItems = [...stagger.querySelectorAll(":scope > *")];
+  refreshItems() {
+    const staggerItems = [...this.querySelectorAll(':scope > *')];
 
-		// Assign a per-child index for staggering via CSS
-		staggerItems.forEach((el, i) => {
-			el.style.setProperty("--stagger--index", i);
-		});
-	}
-});
+    staggerItems.forEach((element, index) => {
+      element.style.setProperty('--stagger--index', index);
+    });
+  }
+}
+
+if (!customElements.get('stagger')) {
+  customElements.define('stagger', StaggerElement);
+}
