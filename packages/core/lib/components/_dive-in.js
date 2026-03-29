@@ -60,6 +60,6 @@ class DiveInElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('dive-in')) {
-  customElements.define('dive-in', DiveInElement);
+if (!customElements.get('pix-dive-in')) {
+  customElements.define('pix-dive-in', DiveInElement);
 }

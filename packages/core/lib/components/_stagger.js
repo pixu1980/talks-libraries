@@ -32,6 +32,6 @@ class StaggerElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('stagger')) {
-  customElements.define('stagger', StaggerElement);
+if (!customElements.get('pix-stagger')) {
+  customElements.define('pix-stagger', StaggerElement);
 }

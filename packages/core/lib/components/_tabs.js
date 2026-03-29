@@ -118,6 +118,6 @@ class TabsElement extends HTMLElement {
   }
 }
 
-if (!customElements.get('tabs')) {
-  customElements.define('tabs', TabsElement);
+if (!customElements.get('pix-tabs')) {
+  customElements.define('pix-tabs', TabsElement);
 }
