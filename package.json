@@ -20,9 +20,12 @@
     "fix:biome": "biome check --write packages/**"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.9",
     "lerna": "9.0.7",
     "parcel": "2.16.4",
-    "@biomejs/biome": "2.4.9",
     "prettier": "3.8.1"
+  },
+  "dependencies": {
+    "pixu-talks-libraries": "link:"
   }
 }

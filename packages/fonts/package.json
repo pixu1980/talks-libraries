@@ -1,11 +1,12 @@
 {
   "name": "@pixu-talks/fonts",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Common Pixu talks fonts",
   "main": "lib/index.css",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
   "license": "MIT",
   "files": [
     "lib"
-  ]
+  ],
+  "gitHead": "c869f59ceeadad5def5ea4f667370707d9fdfc75"
 }
