@@ -1,3 +1,9 @@
+#### 0.3.7 (2026-03-29)
+
+##### Bug Fixes
+
+* **fonts:**  removed licensed museo fonts (915a2957)
+
 #### 0.3.6 (2026-03-19)
 
 ##### Bug Fixes
