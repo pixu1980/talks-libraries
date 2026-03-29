@@ -1,6 +1,6 @@
 {
   "name": "pixu-talks-libraries",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A monorepo for my talks, including common slides snippets and styles",
   "repository": "git@github.com:pixu1980/talks-libraries.git",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
@@ -20,7 +20,7 @@
     "fix:biome": "biome check --write packages/**"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.9",
+    "@biomejs/biome": "2.4.10",
     "lerna": "9.0.7",
     "parcel": "2.16.4",
     "prettier": "3.8.1"
