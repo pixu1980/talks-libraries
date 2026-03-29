@@ -1,10 +1,10 @@
 import "./polyfills/index.js";
 
 import Reveal from "reveal.js";
-import Highlight from "reveal.js/plugin/highlight/highlight.js";
-import Markdown from "reveal.js/plugin/markdown/markdown.js";
-import Zoom from "reveal.js/plugin/zoom/zoom.js";
-import Notes from "reveal.js/plugin/notes/notes.js";
+import Highlight from "reveal.js/dist/plugin/highlight/highlight.js";
+import Markdown from "reveal.js/dist/plugin/markdown/markdown.js";
+import Zoom from "reveal.js/dist/plugin/zoom/zoom.js";
+import Notes from "reveal.js/dist/plugin/notes/notes.js";
 // import { Header, Menu , Toolbar } from './plugins';
 import { Toolbar } from "./plugins";
 import "./components";
