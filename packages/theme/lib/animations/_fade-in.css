@@ -15,7 +15,7 @@
     }
   }
 
-  stagger[animation='fade-in'] {
+  stagger-container[animation='fade-in'] {
     --ani--name: fade-in;
 
     > * {

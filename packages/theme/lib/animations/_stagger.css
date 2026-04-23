@@ -1,5 +1,5 @@
 @layer stagger {
-  stagger {
+  stagger-container {
     --stagger--delay: 400ms;
 
     display: block;

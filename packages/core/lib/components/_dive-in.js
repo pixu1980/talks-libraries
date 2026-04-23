@@ -22,6 +22,10 @@
  *   scenes consider throttling with requestAnimationFrame.
  */
 class DiveInElement extends HTMLElement {
+  static {
+    !customElements.get('dive-in') && customElements.define('dive-in', DiveInElement);
+  }
+
   constructor() {
     super();
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -58,8 +62,4 @@ class DiveInElement extends HTMLElement {
     stackContainer.style.setProperty('--mouse-x', `${offsetX}px`);
     stackContainer.style.setProperty('--mouse-y', `${offsetY}px`);
   }
-}
-
-if (!customElements.get('pix-dive-in')) {
-  customElements.define('pix-dive-in', DiveInElement);
 }

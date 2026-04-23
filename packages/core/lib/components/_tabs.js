@@ -4,7 +4,7 @@
  * Enhances a semantic HTML structure:
  *
  * ```html
- * <tabs>
+ * <tabs-container>
  *   <tabs-list>
  *     <a href="#panel-1" role="tab">Tab 1</a>
  *     <a href="#panel-2" role="tab">Tab 2</a>
@@ -13,7 +13,7 @@
  *     <tab-panel id="panel-1" role="tabpanel">...</tab-panel>
  *     <tab-panel id="panel-2" role="tabpanel">...</tab-panel>
  *   </tabs-panels>
- * </tabs>
+ * </tabs-container>
  * ```
  *
  * Behavior:
@@ -34,6 +34,10 @@
  * - This component assumes a mostly static DOM structure after initialization.
  */
 class TabsElement extends HTMLElement {
+  static {
+    !customElements.get('tabs-container') && customElements.define('tabs-container', TabsElement);
+  }
+
   constructor() {
     super();
     this.currentTabIndex = 0;
@@ -116,8 +120,4 @@ class TabsElement extends HTMLElement {
     event.preventDefault();
     event.stopPropagation();
   }
-}
-
-if (!customElements.get('pix-tabs')) {
-  customElements.define('pix-tabs', TabsElement);
 }
