@@ -1,6 +1,6 @@
 {
   "name": "@pixu-talks/core",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Common Pixu talks core js",
   "main": "lib/slides.js",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
@@ -12,5 +12,5 @@
     "highlight.js": "11.11.1",
     "reveal.js": "6.0.1"
   },
-  "gitHead": "c869f59ceeadad5def5ea4f667370707d9fdfc75"
+  "gitHead": "ba51dd64098711ac1b33dc12ec2611cd485a896a"
 }
