@@ -20,7 +20,7 @@
     "fix:biome": "biome check --write packages/**"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.13",
+    "@biomejs/biome": "2.4.15",
     "lerna": "9.0.7",
     "parcel": "2.16.4",
     "prettier": "3.8.3"
