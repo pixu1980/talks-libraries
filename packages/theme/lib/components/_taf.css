@@ -5,7 +5,7 @@
     .taf-wrapper {
       position: relative;
 
-      height: 50vh;
+      height: 43vh;
       aspect-ratio: 16 / 9;
       margin: 0 auto;
       border: 2px double var(--color-black-600);
