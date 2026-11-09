@@ -1,11 +1,11 @@
 packages:
-  - 'packages/core'
-  - 'packages/fonts'
-  - 'packages/theme'
+  - "packages/core"
+  - "packages/fonts"
+  - "packages/theme"
 
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@swc/core'
-  - lmdb
-  - msgpackr-extract
-  - nx
+allowBuilds:
+  "@parcel/watcher": true
+  "@swc/core": true
+  lmdb: true
+  msgpackr-extract: true
+  nx: true
