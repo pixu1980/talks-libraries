@@ -1,6 +1,5 @@
 {
   "name": "pixu-talks-libraries",
-  "version": "0.4.4",
   "description": "A monorepo for my talks, including common slides snippets and styles",
   "repository": "git@github.com:pixu1980/talks-libraries.git",
   "author": "Emiliano Pisu <pisuemiliano.1980@gmail.com>",
@@ -9,10 +8,11 @@
     "format": "prettier --write \"**/*.{md,yml,yaml}\" && biome check --write packages",
     "lint": "biome check packages",
     "deps": "pnpm up -r --include-workspace-root --latest --save-exact \"!sharp\"",
-    "release": "lerna publish --conventional-commits --changelog-preset conventionalcommits"
+    "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.6",
+    "conventional-changelog-conventionalcommits": "10.4.1",
     "lerna": "10.1.1",
     "parcel": "2.16.4",
     "prettier": "3.9.10"
