@@ -16,8 +16,5 @@
     "lerna": "10.1.1",
     "parcel": "2.16.4",
     "prettier": "3.9.10"
-  },
-  "dependencies": {
-    "pixu-talks-libraries": "link:"
   }
 }
